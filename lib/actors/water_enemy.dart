@@ -9,7 +9,7 @@ class WaterEnemy extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameReference<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
-  int health = 5;
+  int health;
 
   final Vector2 velocity = Vector2.zero();
 
@@ -50,9 +50,13 @@ class WaterEnemy extends SpriteAnimationComponent
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is FireWeapon) {
-      // Handle collision with FireWeapon
-      removeFromParent(); // Remove the WaterEnemy
-      other.removeFromParent(); // Remove the FireWeapon
+      health--; // Reduce health by 1
+      other.removeFromParent(); // Remove the FireWeapon after collision
+
+      if (health <= 0) {
+        // If health is zero or less, remove the WaterEnemy
+        removeFromParent();
+      }
     }
 
     super.onCollision(intersectionPoints, other);

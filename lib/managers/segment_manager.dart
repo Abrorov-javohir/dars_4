@@ -55,42 +55,33 @@ List<List<ObjectBlock>> generateRandomSegments(int count) {
       }
     }
 
-    // Add fewer water enemies on ground or platforms, starting from the middle of the segment
-    int waterEnemiesCount = 0;
-    while (waterEnemiesCount < 1) {
-      // Ensure only 1 water enemy per segment
+    // Add water enemies
+    if (random.nextDouble() < 0.5) {
+      // 50% chance to add a water enemy
       int x = random.nextInt(5) +
           5; // Place water enemies in the second half of the segment
       for (int y = 1; y <= 4; y++) {
-        // Search for a ground or platform to place the water enemy
         if (occupied[x][y - 1] && !occupied[x][y]) {
-          // Place water enemy on a ground or platform
           segment.add(ObjectBlock(
               blockType: WaterEnemy,
               gridPosition: Vector2(x.toDouble(), y.toDouble())));
           occupied[x][y] = true;
-          waterEnemiesCount++;
           break;
         }
       }
     }
 
-    // Add fewer water enemies on ground or platforms, starting from the middle of the segment
-    int sandenemy = 0;
-    while (sandenemy < 1) {
-      // Ensure only 1 water enemy per segment
+    // Add sand enemies
+    if (random.nextDouble() < 0.5) {
+      // 50% chance to add a sand enemy
       int x = random.nextInt(5) +
-          5; // Place water enemies in the second half of the segment
+          5; // Place sand enemies in the second half of the segment
       for (int y = 1; y <= 4; y++) {
-        // Search for a ground or platform to place the water enemy
         if (occupied[x][y - 1] && !occupied[x][y]) {
-          // Place water enemy on a ground or platform
           segment.add(ObjectBlock(
-            blockType: SandEnemy,
-            gridPosition: Vector2(x.toDouble(), y.toDouble()),
-          ));
+              blockType: SandEnemy,
+              gridPosition: Vector2(x.toDouble(), y.toDouble())));
           occupied[x][y] = true;
-          sandenemy++;
           break;
         }
       }
@@ -182,16 +173,17 @@ final segment2 = [
 final segment3 = [
   ObjectBlock(gridPosition: Vector2(0, 0), blockType: GroundBlock),
   ObjectBlock(gridPosition: Vector2(1, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(1, 1), blockType: WaterEnemy),
   ObjectBlock(gridPosition: Vector2(2, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(2, 1), blockType: PlatformBlock),
-  ObjectBlock(gridPosition: Vector2(2, 2), blockType: PlatformBlock),
-  ObjectBlock(gridPosition: Vector2(4, 4), blockType: PlatformBlock),
-  ObjectBlock(gridPosition: Vector2(6, 6), blockType: PlatformBlock),
+  ObjectBlock(gridPosition: Vector2(3, 0), blockType: GroundBlock),
+  ObjectBlock(gridPosition: Vector2(4, 0), blockType: GroundBlock),
+  ObjectBlock(gridPosition: Vector2(4, 5), blockType: Star),
+  ObjectBlock(gridPosition: Vector2(5, 0), blockType: GroundBlock),
+  ObjectBlock(gridPosition: Vector2(6, 0), blockType: GroundBlock),
+  ObjectBlock(gridPosition: Vector2(6, 1), blockType: WaterEnemy),
+  ObjectBlock(gridPosition: Vector2(6, 2), blockType: PlatformBlock),
+  ObjectBlock(gridPosition: Vector2(7, 2), blockType: PlatformBlock),
   ObjectBlock(gridPosition: Vector2(7, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(7, 1), blockType: PlatformBlock),
   ObjectBlock(gridPosition: Vector2(8, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(8, 8), blockType: Star),
   ObjectBlock(gridPosition: Vector2(9, 0), blockType: GroundBlock),
 ];
 
@@ -199,20 +191,14 @@ final segment4 = [
   ObjectBlock(gridPosition: Vector2(0, 0), blockType: GroundBlock),
   ObjectBlock(gridPosition: Vector2(1, 0), blockType: GroundBlock),
   ObjectBlock(gridPosition: Vector2(2, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(2, 3), blockType: PlatformBlock),
   ObjectBlock(gridPosition: Vector2(3, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(3, 1), blockType: WaterEnemy),
-  ObjectBlock(gridPosition: Vector2(3, 3), blockType: PlatformBlock),
   ObjectBlock(gridPosition: Vector2(4, 0), blockType: GroundBlock),
+  ObjectBlock(gridPosition: Vector2(4, 4), blockType: Star),
   ObjectBlock(gridPosition: Vector2(5, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(5, 5), blockType: PlatformBlock),
+  ObjectBlock(gridPosition: Vector2(5, 4), blockType: PlatformBlock),
   ObjectBlock(gridPosition: Vector2(6, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(6, 5), blockType: PlatformBlock),
-  ObjectBlock(gridPosition: Vector2(6, 7), blockType: Star),
+  ObjectBlock(gridPosition: Vector2(6, 1), blockType: SandEnemy),
   ObjectBlock(gridPosition: Vector2(7, 0), blockType: GroundBlock),
   ObjectBlock(gridPosition: Vector2(8, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(8, 3), blockType: PlatformBlock),
   ObjectBlock(gridPosition: Vector2(9, 0), blockType: GroundBlock),
-  ObjectBlock(gridPosition: Vector2(9, 1), blockType: WaterEnemy),
-  ObjectBlock(gridPosition: Vector2(9, 3), blockType: PlatformBlock),
 ];

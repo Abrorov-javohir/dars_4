@@ -192,7 +192,7 @@ class EmberQuestGame extends FlameGame
   void update(double dt) {
     if ((health <= 0 || remainingTime <= 0) &&
         starsCollected != requiredStars) {
-      playSound('sounds/game_over.mp3');
+      playSound('audio/game_over.mp3');
       overlays.add('GameOver');
       gameTimer.timer.stop();
     }

@@ -56,7 +56,7 @@ class _GameControlsState extends State<GameControls> {
             onPressed: () {
               widget.game
                   .fireWeapon(); // Call the fire function when the button is pressed
-              playSound('sounds/gun.mp3');
+              playSound('audio/gun.mp3');
             },
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
@@ -74,7 +74,6 @@ class _GameControlsState extends State<GameControls> {
           child: ElevatedButton(
             onPressed: () {
               widget.game.jumpPlayer();
-              playSound('sounds/jump.mp3');
             },
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),

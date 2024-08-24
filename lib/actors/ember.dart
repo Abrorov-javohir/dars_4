@@ -20,7 +20,7 @@ class EmberPlayer extends SpriteAnimationComponent
   bool isOnGround = false;
   Direction direction = Direction.right;
   final double gravity = 20;
-  final double jumpSpeed = 900;
+  final double jumpSpeed = 600;
   final double terminalVelocity = 150;
 
   bool hasJumped = false;
@@ -155,4 +155,5 @@ class EmberPlayer extends SpriteAnimationComponent
 
     super.update(dt);
   }
+  
 }

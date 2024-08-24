@@ -31,7 +31,7 @@ class NextLevelOverlay extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                game.playSound("sounds/next_level.mp3");
+                game.playSound("audio/next_level.mp3");
                 game.startNextLevel();
 
                 // Remove the overlay after starting the next level
