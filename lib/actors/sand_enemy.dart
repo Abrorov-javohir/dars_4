@@ -24,7 +24,7 @@ class SandEnemy extends SpriteAnimationComponent
     animation = SpriteAnimation.fromFrameData(
       game.images.fromCache('sand.png'),
       SpriteAnimationData.sequenced(
-        amount: 4,
+        amount: 1,
         textureSize: Vector2(64, 71),
         stepTime: 0.70,
       ),

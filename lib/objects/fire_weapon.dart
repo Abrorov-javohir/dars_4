@@ -1,4 +1,4 @@
-import 'package:dars_4/objects/platform_block.dart';
+import 'package:Fire_Advanture/objects/platform_block.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/collisions.dart';

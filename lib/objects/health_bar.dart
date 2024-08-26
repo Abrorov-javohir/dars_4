@@ -30,14 +30,15 @@ class HealthBar extends PositionComponent {
     super.update(dt);
 
     // Assuming enemy has a health property
-    double currentHealth = (enemy as dynamic).health.toDouble();
+    int currentHealth = (enemy as dynamic).health;
 
     if (currentHealth <= 0) {
       // If enemy is dead, remove the health bar
-      removeFromParent();  // HealthBarni olib tashlash
+      removeFromParent(); // HealthBarni olib tashlash
     } else {
       // Update health bar size and position
-      _bar.size.x = (currentHealth / 5) * maxWidth; // 5 -> dushman uchun maksimal jon
+      _bar.size.x =
+          (currentHealth / 15) * maxWidth; // 15 -> SandEnemy uchun maksimal jon
       position = enemy.position - Vector2(0, enemy.size.y + 10);
     }
   }

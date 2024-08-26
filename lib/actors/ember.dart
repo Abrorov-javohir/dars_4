@@ -1,4 +1,4 @@
-import 'package:dars_4/overlays/game_controls.dart';
+import 'package:Fire_Advanture/overlays/game_controls.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -20,7 +20,7 @@ class EmberPlayer extends SpriteAnimationComponent
   bool isOnGround = false;
   Direction direction = Direction.right;
   final double gravity = 20;
-  final double jumpSpeed = 600;
+  final double jumpSpeed = 700;
   final double terminalVelocity = 150;
 
   bool hasJumped = false;
@@ -155,5 +155,4 @@ class EmberPlayer extends SpriteAnimationComponent
 
     super.update(dt);
   }
-  
 }
